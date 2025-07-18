@@ -45,7 +45,9 @@ void usart_init(void){
 
 	/* Configure USART1 */
 	USART_Init(USART1, &USART_InitStructure);
-	/* Enable the USARTy */
+	/* Enable USARTy Receive and Transmit interrupts */
+  	USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
+	/* Enable the USART1 */
 	USART_Cmd(USART1, ENABLE);
 }
 
