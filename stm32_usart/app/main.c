@@ -12,8 +12,8 @@ static uint16_t data_len;
 
 static void usart_received(uint8_t data){
 	if (data_len < 15){
-		data_len++;
 		data_buffer[data_len] = data;
+		data_len++;
 	}
 }
 
