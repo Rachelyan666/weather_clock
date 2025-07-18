@@ -27,6 +27,14 @@ void usart_init(void){
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
+	NVIC_InitTypeDef NVIC_InitStructure;
+	/* Enable the USART1 Interrupt */
+	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 5;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
+
 	USART_InitTypeDef USART_InitStructure;
 	USART_InitStructure.USART_BaudRate = 115200;
 	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
@@ -55,4 +63,16 @@ void usart_write_string(const char *str){
 
 void usart_receive_register(usart_receive_callback_t callback){
 	usart_receive_callback = callback;
+}
+
+void USART1_IRQHandler(void){
+	if(USART_GetITStatus(USART1, USART_IT_RXNE) == SET)
+	{
+		/* Read one byte from the receive data register */
+		uint8_t data = USART_ReceiveData(USART1);
+
+		if (usart_receive_callback){
+			usart_receive_callback(data);
+		}
+	}
 }

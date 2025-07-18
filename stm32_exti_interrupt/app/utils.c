@@ -14,4 +14,6 @@ void board_init(void){
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE); //OPEN GPIOa CLOCK
 	/* Enable AFIO clock for interrupt*/
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
+	/* Configure the NVIC Preemption Priority Bits */  
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
 }

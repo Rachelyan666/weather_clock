@@ -15,8 +15,8 @@ int main(void){
 	while(true){
 		usart_write_string("hello world\r\n");
 		led_on();
-		delay(200);
+		delay(500);
 		led_off();
-		delay(200);
+		delay(500);
 	}
 }
