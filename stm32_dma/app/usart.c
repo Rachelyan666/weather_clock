@@ -13,6 +13,8 @@
 #define RX_PIN GPIO_Pin_10
 
 static usart_receive_callback_t usart_receive_callback;
+static usart_send_finish_callback_t usart_send_finish_callback;
+static volatile bool usart_send_busy;
 
 
 void usart_init(void){
@@ -30,6 +32,12 @@ void usart_init(void){
 	NVIC_InitTypeDef NVIC_InitStructure;
 	/* Enable the USART1 Interrupt */
 	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 5;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
+
+	NVIC_InitStructure.NVIC_IRQChannel = DMA1_Channel4_IRQn;
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 5;
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
@@ -70,9 +78,11 @@ void usart_write_async(uint8_t *data, uint16_t length){
 	DMA_InitStructure.DMA_Priority = DMA_Priority_Medium;
 	DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;
 	DMA_Init(DMA1_Channel4, &DMA_InitStructure);
-
+	DMA_ITConfig(DMA1_Channel4, DMA_IT_TC, ENABLE);
+	usart_send_busy = true;
 	/* Enable USART1 DMA TX Channel */
 	DMA_Cmd(DMA1_Channel4, ENABLE);
+	while (usart_send_busy);
 }
 
 void usart_write_data(uint8_t *data, uint16_t length){
@@ -87,8 +97,23 @@ void usart_write_string(const char *str){
 	usart_write_data((uint8_t *)str, len);
 }
 
+void usart_send_finish_register(usart_send_finish_callback_t callback){
+	usart_send_finish_callback = callback;
+}
+
 void usart_receive_register(usart_receive_callback_t callback){
 	usart_receive_callback = callback;
+}
+
+void DMA1_Channel4_IRQHandler(void){
+	if(DMA_GetITStatus(DMA1_IT_TC4) == SET)
+	{
+		usart_send_busy = false;
+		if (usart_send_finish_callback){
+			usart_send_finish_callback();
+		}
+		DMA_ClearITPendingBit(DMA1_IT_TC4);
+	}
 }
 
 void USART1_IRQHandler(void){
@@ -102,3 +127,5 @@ void USART1_IRQHandler(void){
 		}
 	}
 }
+
+
