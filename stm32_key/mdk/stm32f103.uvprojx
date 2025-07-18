@@ -399,6 +399,11 @@
               <FileType>1</FileType>
               <FilePath>..\app\led.c</FilePath>
             </File>
+            <File>
+              <FileName>key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\app\key.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -6,6 +6,7 @@
 #define LED_PORT GPIOC
 #define LED_PIN GPIO_Pin_13
 
+bool led_state = false;
 
 void led_init(void){
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -17,6 +18,7 @@ void led_init(void){
 }
 
 void led_set(bool on){
+	led_state = on;
 	BitAction ba = on ? Bit_RESET : Bit_SET;
 	GPIO_WriteBit(LED_PORT, LED_PIN, ba);
 }
@@ -29,3 +31,6 @@ void led_off(void){
 	led_set(false);
 }
 
+void led_toggle(void){
+	led_set(!led_state);
+}
