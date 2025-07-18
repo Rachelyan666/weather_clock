@@ -12,4 +12,5 @@ void delay(uint32_t x){
 void board_init(void){
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE); //OPEN THE CLOCK
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE); //OPEN THE CLOCK
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE); //OPEN THE CLOCK
 }

@@ -3,8 +3,8 @@
 #include "key.h"
 
 
-#define KEY_PORT GPIOB
-#define KEY_PIN GPIO_Pin_10
+#define KEY_PORT GPIOA
+#define KEY_PIN GPIO_Pin_9
 
 
 void key_init(void){
