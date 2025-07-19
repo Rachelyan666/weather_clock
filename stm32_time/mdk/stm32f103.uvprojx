@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\app;..\driver;..\firmware\cmsis\core;..\firmware\cmsis\device;..\firmware\driver\inc</IncludePath>
+              <IncludePath>..\app;..\driver;..\firmware\cmsis\core;..\firmware\cmsis\device;..\firmware\driver\inc;..\driver\st7735</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -409,10 +409,37 @@
               <FileType>1</FileType>
               <FilePath>..\app\pwm.c</FilePath>
             </File>
+            <File>
+              <FileName>rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\app\rtc.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcd_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\app\lcd_spi.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>driver</GroupName>
+          <Files>
+            <File>
+              <FileName>st7735.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\driver\st7735\st7735.c</FilePath>
+            </File>
+            <File>
+              <FileName>stfonts.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\driver\st7735\stfonts.c</FilePath>
+            </File>
+            <File>
+              <FileName>stimage.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\driver\st7735\stimage.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>firmware</GroupName>

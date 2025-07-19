@@ -9,6 +9,14 @@ void board_init(void){
 	//enable timer
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE); //OPEN THE CLOCK
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE); //OPEN THE CLOCK
+
+	//enable rtc
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR, ENABLE); //OPEN THE CLOCK
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_BKP, ENABLE); //OPEN THE CLOCK
+	PWR_BackupAccessCmd(ENABLE); //allow visit for backup
+	BKP_DeInit();//wait for backup to come online
+	RCC_LSEConfig(RCC_LSE_ON);
+	while(RCC_GetFlagStatus(RCC_FLAG_LSERDY) == RESET); //wait for ready
 }
 
 void delay_us(uint32_t us){

@@ -1,6 +1,7 @@
 .\objects\main.o: ..\app\main.c
 .\objects\main.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\main.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\main.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\main.o: ..\firmware\cmsis\device\stm32f10x.h
 .\objects\main.o: ..\firmware\cmsis\core\core_cm3.h
 .\objects\main.o: ..\firmware\cmsis\device\system_stm32f10x.h
@@ -32,4 +33,9 @@
 .\objects\main.o: ..\app\main.h
 .\objects\main.o: ..\app\led.h
 .\objects\main.o: ..\app\timer.h
-.\objects\main.o: ..\app\pwm.h
+.\objects\main.o: ..\app\rtc.h
+.\objects\main.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\main.o: ..\driver\st7735\st7735.h
+.\objects\main.o: ..\driver\st7735\stfonts.h
+.\objects\main.o: ..\driver\st7735\stimage.h
+.\objects\main.o: ..\app\lcd_spi.h
