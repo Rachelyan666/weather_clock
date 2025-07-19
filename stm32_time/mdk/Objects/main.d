@@ -31,3 +31,4 @@
 .\objects\main.o: ..\firmware\driver\inc\misc.h
 .\objects\main.o: ..\app\main.h
 .\objects\main.o: ..\app\led.h
+.\objects\main.o: ..\app\timer.h
