@@ -29,4 +29,4 @@
 .\objects\pwm.o: ..\firmware\driver\inc\stm32f10x_usart.h
 .\objects\pwm.o: ..\firmware\driver\inc\stm32f10x_wwdg.h
 .\objects\pwm.o: ..\firmware\driver\inc\misc.h
-.\objects\pwm.o: ..\app\timer.h
+.\objects\pwm.o: ..\app\pwm.h

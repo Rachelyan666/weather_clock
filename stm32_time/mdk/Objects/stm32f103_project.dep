@@ -125,7 +125,7 @@ I (..\firmware\driver\inc\stm32f10x_usart.h)(0x686F0D7B)
 I (..\firmware\driver\inc\stm32f10x_wwdg.h)(0x686F0D7B)
 I (..\firmware\driver\inc\misc.h)(0x686F0D7B)
 I (..\app\timer.h)(0x687C06CC)
-F (..\app\pwm.c)(0x687C109C)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\driver -I ..\firmware\cmsis\core -I ..\firmware\cmsis\device -I ..\firmware\driver\inc-IC:\Users\rache\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\pwm.o --omf_browse .\objects\pwm.crf --depend .\objects\pwm.d)
+F (..\app\pwm.c)(0x687C1146)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\driver -I ..\firmware\cmsis\core -I ..\firmware\cmsis\device -I ..\firmware\driver\inc-IC:\Users\rache\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\pwm.o --omf_browse .\objects\pwm.crf --depend .\objects\pwm.d)
 I (C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E8EE582)
 I (C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8EE582)
 I (..\firmware\cmsis\device\stm32f10x.h)(0x686F0D7B)
@@ -155,7 +155,7 @@ I (..\firmware\driver\inc\stm32f10x_tim.h)(0x686F0D7B)
 I (..\firmware\driver\inc\stm32f10x_usart.h)(0x686F0D7B)
 I (..\firmware\driver\inc\stm32f10x_wwdg.h)(0x686F0D7B)
 I (..\firmware\driver\inc\misc.h)(0x686F0D7B)
-I (..\app\timer.h)(0x687C06CC)
+I (..\app\pwm.h)(0x687C0FBF)
 F (..\firmware\cmsis\core\core_cm3.c)(0x686F0D7B)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\driver -I ..\firmware\cmsis\core -I ..\firmware\cmsis\device -I ..\firmware\driver\inc-IC:\Users\rache\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\core_cm3.o --omf_browse .\objects\core_cm3.crf --depend .\objects\core_cm3.d)
 I (C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8EE582)
 F (..\firmware\cmsis\device\startup_stm32f10x_xl.s)(0x686F0D7B)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-IC:\Users\rache\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include--pd "__UVISION_VERSION SETA 542" --pd "STM32F10X_MD SETA 1"--list .\listings\startup_stm32f10x_xl.lst --xref -o .\objects\startup_stm32f10x_xl.o --depend .\objects\startup_stm32f10x_xl.d)
