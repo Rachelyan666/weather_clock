@@ -5,11 +5,11 @@ void board_init(void){
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE); //OPEN THE CLOCK
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE); //OPEN THE CLOCK
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE); //OPEN THE CLOCK
-
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1, ENABLE);
 	//enable timer
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE); //OPEN THE CLOCK
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE); //OPEN THE CLOCK
-
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);
 	//enable rtc
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR, ENABLE); //OPEN THE CLOCK
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_BKP, ENABLE); //OPEN THE CLOCK

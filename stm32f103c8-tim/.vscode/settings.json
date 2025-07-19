@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "stdint.h": "c",
-        "main.h": "c",
-        "timer.h": "c",
-        "stdbool.h": "c",
-        "pwm.h": "c"
-    }
-}

@@ -1,6 +1,6 @@
 Dependencies for Project 'stm32f103', Target 'project': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (..\app\main.c)(0x687C1991)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\driver -I ..\firmware\cmsis\core -I ..\firmware\cmsis\device -I ..\firmware\driver\inc -I ..\driver\st7735-IC:\Users\rache\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (..\app\main.c)(0x687C1DBC)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\driver -I ..\firmware\cmsis\core -I ..\firmware\cmsis\device -I ..\firmware\driver\inc -I ..\driver\st7735-IC:\Users\rache\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E8EE582)
 I (C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8EE582)
 I (C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E8EE582)
@@ -40,7 +40,7 @@ I (..\driver\st7735\st7735.h)(0x687AF5DB)
 I (..\driver\st7735\stfonts.h)(0x687B0442)
 I (..\driver\st7735\stimage.h)(0x687B0C17)
 I (..\app\lcd_spi.h)(0x687AF5DB)
-F (..\app\utils.c)(0x687C1329)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\driver -I ..\firmware\cmsis\core -I ..\firmware\cmsis\device -I ..\firmware\driver\inc -I ..\driver\st7735-IC:\Users\rache\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\utils.o --omf_browse .\objects\utils.crf --depend .\objects\utils.d)
+F (..\app\utils.c)(0x687C1D4A)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\app -I ..\driver -I ..\firmware\cmsis\core -I ..\firmware\cmsis\device -I ..\firmware\driver\inc -I ..\driver\st7735-IC:\Users\rache\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="542" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o .\objects\utils.o --omf_browse .\objects\utils.crf --depend .\objects\utils.d)
 I (C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8EE582)
 I (..\firmware\cmsis\device\stm32f10x.h)(0x686F0D7B)
 I (..\firmware\cmsis\core\core_cm3.h)(0x686F0D7B)

@@ -45,14 +45,14 @@ int main(void){
         sprintf(str, "Year: %u", date.year);
         st7735_write_string(0, 0, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
 		sprintf(str, "Month: %u", date.month);
-        st7735_write_string(0, 0, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
+        st7735_write_string(0, 20, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
 		sprintf(str, "Day: %u", date.day);
-        st7735_write_string(0, 0, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
+        st7735_write_string(0, 40, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
 		sprintf(str, "Hour: %u", date.hour);
-        st7735_write_string(0, 0, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
+        st7735_write_string(0, 60, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
 		sprintf(str, "Minute: %u", date.minute);
-        st7735_write_string(0, 0, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
+        st7735_write_string(0, 80, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
 		sprintf(str, "Second: %u", date.second);
-        st7735_write_string(0, 0, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
+        st7735_write_string(0, 100, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
     }
 }
