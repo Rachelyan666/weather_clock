@@ -1,7 +1,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include "stm32f10x.h"
-#include "timer.h"
+#include "pwm.h"
 
 
 void pwm_init(uint32_t period_us){
