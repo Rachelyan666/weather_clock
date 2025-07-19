@@ -32,3 +32,4 @@
 .\objects\main.o: ..\app\main.h
 .\objects\main.o: ..\app\led.h
 .\objects\main.o: ..\app\timer.h
+.\objects\main.o: ..\app\pwm.h

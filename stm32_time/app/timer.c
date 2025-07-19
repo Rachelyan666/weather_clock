@@ -2,7 +2,6 @@
 #include <stdint.h>
 #include "stm32f10x.h"
 #include "timer.h"
-#include "main.h"
 
 
 static timer_elapsed_callback_t timer_elapsed_callback;

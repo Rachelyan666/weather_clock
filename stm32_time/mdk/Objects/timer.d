@@ -30,4 +30,3 @@
 .\objects\timer.o: ..\firmware\driver\inc\stm32f10x_wwdg.h
 .\objects\timer.o: ..\firmware\driver\inc\misc.h
 .\objects\timer.o: ..\app\timer.h
-.\objects\timer.o: ..\app\main.h
