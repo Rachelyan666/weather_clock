@@ -137,7 +137,7 @@ static void st7735_reset(void)
     GPIO_WriteBit(RES_PORT, RES_PIN, Bit_RESET);
     delay(2);
     GPIO_WriteBit(RES_PORT, RES_PIN, Bit_SET);
-    delay(150);
+    delay(150); //both of these wait time are based on st7735 documentation
 }
 
 static void st7735_bl_on(void)

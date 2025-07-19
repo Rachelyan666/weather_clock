@@ -14,6 +14,7 @@ typedef struct
 
 
 extern st_image_t image_tv_128x72;
+extern st_image_t image_rasp_72x72;
 
 
 #endif /* __ST_IMAGE_H__ */

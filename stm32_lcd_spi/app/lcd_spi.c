@@ -66,7 +66,7 @@ void lcd_spi_write(uint8_t *data, uint16_t length)
         while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_TXE) == RESET);
         SPI_I2S_SendData(SPI1, data[i]);
     }
-    while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_BSY) == SET);
+    while (SPI_I2S_GetFlagStatus(SPI1, SPI_I2S_FLAG_BSY) == SET); //so there's 2 buffers, this is the second one and we need to wait for that
 }
 
 void lcd_spi_write_async(uint8_t *data, uint16_t length)

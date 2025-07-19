@@ -6,6 +6,7 @@
 
 
 void delay(uint32_t ticks);
+void board_init(void);
 
 
 #endif /* __MAIN_H__ */

@@ -16,6 +16,7 @@ typedef struct
 
 extern st_fonts_t font_ascii_8x16;
 extern st_fonts_t font_ni_hao_shi_jie_16x16;
+extern st_fonts_t font_hello_world_8x16;
 
 
 #endif /* __ST_FONTS_H__ */
