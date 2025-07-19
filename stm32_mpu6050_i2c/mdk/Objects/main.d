@@ -37,3 +37,4 @@
 .\objects\main.o: ..\driver\st7735\st7735.h
 .\objects\main.o: ..\driver\st7735\stfonts.h
 .\objects\main.o: ..\driver\st7735\stimage.h
+.\objects\main.o: ..\driver\mpu6050\mpu6050.h

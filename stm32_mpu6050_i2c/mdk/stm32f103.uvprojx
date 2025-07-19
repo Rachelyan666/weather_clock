@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\app;..\driver;..\firmware\cmsis\core;..\firmware\cmsis\device;..\firmware\driver\inc;..\driver\st7735</IncludePath>
+              <IncludePath>..\app;..\driver;..\firmware\cmsis\core;..\firmware\cmsis\device;..\firmware\driver\inc;..\driver\st7735;..\driver\mpu6050</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -409,6 +409,11 @@
               <FileType>1</FileType>
               <FilePath>..\app\lcd_spi.c</FilePath>
             </File>
+            <File>
+              <FileName>swi2c.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\app\swi2c.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -428,6 +433,11 @@
               <FileName>stimage.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\driver\st7735\stimage.c</FilePath>
+            </File>
+            <File>
+              <FileName>mpu6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\driver\mpu6050\mpu6050.c</FilePath>
             </File>
           </Files>
         </Group>

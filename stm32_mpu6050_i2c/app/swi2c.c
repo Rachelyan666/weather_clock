@@ -33,7 +33,7 @@ static void i2c_start(void)
     SCL_LOW();
 }
 
-static void i2c_stop(void)
+static void i2c_stop(void) //both start and stop are i2c documentation requirement of high&low changes
 {
     SDA_LOW();
     DELAY();
@@ -47,7 +47,7 @@ static bool i2c_write_byte(uint8_t data)
 {
     for (uint8_t i = 0; i < 8; i++)
     {
-        if (data & 0x80)
+        if (data & 0x80) //detect if the highest bit is 1
             SDA_HIGH();
         else
             SDA_LOW();
@@ -77,7 +77,7 @@ static uint8_t i2c_read_byte(bool ack)
     SDA_HIGH();
     for (uint8_t i = 0; i < 8; i++)
     {
-        data <<= 1;
+        data <<= 1; //shift left for the next bit
         SCL_HIGH();
         DELAY();
         if (SDA_READ())

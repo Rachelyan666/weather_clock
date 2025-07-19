@@ -9,6 +9,7 @@
 #include "st7735.h"
 #include "stfonts.h"
 #include "stimage.h"
+#include "mpu6050.h"
 
 
 int main(void)
@@ -18,19 +19,55 @@ int main(void)
     led_init();
     usart_init();
     st7735_init();
+    mpu6050_init();
 
     st7735_fill_screen(ST7735_BLACK);
 
-    uint32_t i = 0;
-    char str[32];
+    char str[64];
     while (1)
     {
-        sprintf(str, "%04u", i++);
-        i = i % 10000; // 0 ~ 9999
+        delay(20);
+        mpu6050_accel_t accel;
+        mpu6050_read_accel(&accel);
+
+
+        mpu6050_gyro_t gyro;
+        mpu6050_read_gyro(&gyro);
+
+
+        float temp = mpu6050_read_temper();
+
+
+        sprintf(str, "Accel: %.2f, %.2f, %.2f\r\n", accel.x, accel.y, accel.z);
+        usart_write_string(str, false);
+        sprintf(str, "Accel:");
         st7735_write_string(0, 0, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
-        //st7735_write_fonts(0, 20, &font_ni_hao_shi_jie_16x16, 0, 4, ST7735_GREEN, ST7735_BLACK);
-        st7735_write_fonts(0, 20, &font_hello_world_8x16, 0, 11, ST7735_GREEN, ST7735_BLACK);
-        st7735_draw_image(0, 40, image_tv_128x72.width, image_tv_128x72.height, (uint8_t *)image_tv_128x72.data);
-        delay(1000);
+        sprintf(str, "%6.2f", accel.x);
+        st7735_write_string(0, 16, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
+        sprintf(str, "%6.2f", accel.y);
+        st7735_write_string(0, 32, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
+        sprintf(str, "%6.2f", accel.z);
+        st7735_write_string(0, 48, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
+
+
+        sprintf(str, "gyro: %.2f, %.2f, %.2f\r\n", gyro.x, gyro.y, gyro.z);
+        usart_write_string(str, false);
+        sprintf(str, "Gyro:");
+        st7735_write_string(64, 0, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
+        sprintf(str, "%7.2f", gyro.x);
+        st7735_write_string(64, 16, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
+        sprintf(str, "%7.2f", gyro.y);
+        st7735_write_string(64, 32, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
+        sprintf(str, "%7.2f", gyro.z);
+        st7735_write_string(64, 48, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
+
+
+        sprintf(str, "temper: %.2f\r\n", temp);
+        usart_write_string(str, false);
+        sprintf(str, "Temper:");
+        st7735_write_string(0, 128 - 16, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
+        sprintf(str, "%4.1f", temp);
+        st7735_write_string(64, 128 - 16, str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
+
     }
 }
