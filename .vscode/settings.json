@@ -3,6 +3,7 @@
         "stm32f10x.h": "c",
         "usart.h": "c",
         "main.h": "c",
-        "esp_usart.h": "c"
+        "esp_usart.h": "c",
+        "stimage.h": "c"
     }
 }
