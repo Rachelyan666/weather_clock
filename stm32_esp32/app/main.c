@@ -84,7 +84,7 @@ int main(void)
 		{
 			uint32_t ts;
 			sntp_ok = esp_at_sntp_init();
-			delay(1000);
+			delay_ms(1000);
 			esp_at_time_get(&ts);
 			rtc_set_timestamp(ts - 4 * 60 * 60);
 		}

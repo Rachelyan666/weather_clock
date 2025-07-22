@@ -37,7 +37,7 @@ static void on_usart_received(uint8_t data)
     return;
   }
   // end of data
-  if (data = "\n")
+  if (data == '\n')
   {
     // is it the end \r\n
     if (rx_len >= 2 && rx_data[rx_len - 2] == '\r')
@@ -45,7 +45,7 @@ static void on_usart_received(uint8_t data)
       // did we get ok?
       if (rx_len >= 4 && rx_data[rx_len - 4] == 'O' && rx_data[rx_len - 3] == 'K')
       {
-        rx_result - RX_RESULT_OK;
+        rx_result = RX_RESULT_OK;
         rx_ready = false;
       }
       else if (rx_len >= 7 && rx_data[rx_len - 4] == 'E' && rx_data[rx_len - 3] == 'R' &&
@@ -109,7 +109,7 @@ bool esp_at_reset(void)
   {
     return false;
   }
-  delay(2000);
+  delay_ms(2000);
   // CLOSE CALLBACK
   if (!esp_at_send_command("ATE0", NULL, NULL, 1000))
   {

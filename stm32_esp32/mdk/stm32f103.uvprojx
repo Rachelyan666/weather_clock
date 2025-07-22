@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\app;..\driver;..\firmware\cmsis\core;..\firmware\cmsis\device;..\firmware\driver\inc;..\driver\st7735</IncludePath>
+              <IncludePath>..\app;..\driver;..\firmware\cmsis\core;..\firmware\cmsis\device;..\firmware\driver\inc;..\driver\st7735;..\driver\esp_at</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -419,6 +419,16 @@
               <FileType>1</FileType>
               <FilePath>..\app\lcd_spi.c</FilePath>
             </File>
+            <File>
+              <FileName>esp_usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\app\esp_usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>weather.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\app\weather.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -438,6 +448,11 @@
               <FileName>stimage.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\driver\st7735\stimage.c</FilePath>
+            </File>
+            <File>
+              <FileName>esp_at.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\driver\esp_at\esp_at.c</FilePath>
             </File>
           </Files>
         </Group>

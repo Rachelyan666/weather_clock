@@ -32,10 +32,11 @@
 .\objects\main.o: ..\firmware\driver\inc\misc.h
 .\objects\main.o: ..\app\main.h
 .\objects\main.o: ..\app\led.h
-.\objects\main.o: ..\app\timer.h
 .\objects\main.o: ..\app\rtc.h
 .\objects\main.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\main.o: ..\driver\st7735\st7735.h
 .\objects\main.o: ..\driver\st7735\stfonts.h
 .\objects\main.o: ..\driver\st7735\stimage.h
 .\objects\main.o: ..\app\lcd_spi.h
+.\objects\main.o: ..\driver\esp_at\esp_at.h
+.\objects\main.o: ..\app\weather.h
