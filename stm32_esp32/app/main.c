@@ -9,7 +9,7 @@
 #include "stfonts.h"
 #include "stimage.h"
 #include "lcd_spi.h"
-#include "esp_at.h"
+#include "esp_usart.h"
 #include "weather.h"
 
 // pin connection
@@ -17,9 +17,22 @@
 // esp32 gpio 7 -> stm32 A3
 // gnd to gnd
 
-static const char *wifi_ssid = "CTT-WIFI";
-static const char *wifi_pswd = "U5GWBV6P";
-static const char *weather_uri = "https://api.seniverse.com/v3/weather/now.json?key=SCKLd5GJ3KBdUvIAh&location=beijing&language=en&unit=c";
+// UART receive buffer
+static char rx_buffer[128];
+static uint16_t rx_len = 0;
+static bool line_ready = false;
+
+// UART receive callback
+static void usart_received(uint8_t data) {
+    if (line_ready) return;  // skip if previous line not yet processed
+
+    if (data == '\n') {
+        rx_buffer[rx_len] = '\0';  // null terminate
+        line_ready = true;
+    } else if (rx_len < sizeof(rx_buffer) - 1) {
+        rx_buffer[rx_len++] = data;
+    }
+}
 
 int main(void)
 {
@@ -27,47 +40,65 @@ int main(void)
 	board_init();
 	led_init();
 	rtc_init();
+	esp_usart_init();
 
 	st7735_init();
 	st7735_fill_screen(ST7735_BLACK);
+	
+	esp_usart_receive_register(usart_received);
 
-	delay_ms(5000);
+	char str[64];
+    rtc_date_t date;
 
-	char line[128];
-	rtc_date_t date;
+    while (1) {
+        // Display current RTC time
+        rtc_get_date(&date);
+        snprintf(str, sizeof(str), "%04d-%02d-%02d", date.year, date.month, date.day);
+        st7735_write_string(0, 0, str, &font_ascii_8x16, ST7735_WHITE, ST7735_BLACK);
+        snprintf(str, sizeof(str), "%02d:%02d:%02d", date.hour, date.minute, date.second);
+        st7735_write_string(0, 16, str, &font_ascii_8x16, ST7735_WHITE, ST7735_BLACK);
 
-	while (1)
-	{
-		// --- Display RTC time at top ---
-		rtc_get_date(&date);
-		snprintf(str, sizeof(str), "%04d-%02d-%02d", date.year, date.month, date.day);
-		st7735_write_string(0, 0, str, &font_ascii_8x16, ST7735_WHITE, ST7735_BLACK);
-		snprintf(str, sizeof(str), "%02d:%02d:%02d", date.hour, date.minute, date.second);
-		st7735_write_string(0, 16, str, &font_ascii_8x16, ST7735_WHITE, ST7735_BLACK);
+        // Process full line when available
+        if (line_ready) {
+            char city[32] = {0}, weather_str[32] = {0}, temp_str[16] = {0};
+            char date_str[16] = {0}, time_str[16] = {0};
 
-		// --- Wait for new line from Pico W ---
-		if (receive_line(line, sizeof(line)))
-		{
-			// Format: Ithaca,Clear,12.6,2025-07-22,03:53:17
-			char city[32], weather_str[32], temp_str[16], date_str[16], time_str[16];
+            char *token;
+            token = strtok(rx_buffer, ",");
+            if (token) strncpy(city, token, sizeof(city));
+            token = strtok(NULL, ",");
+            if (token) strncpy(weather_str, token, sizeof(weather_str));
+            token = strtok(NULL, ",");
+            if (token) strncpy(temp_str, token, sizeof(temp_str));
+            token = strtok(NULL, ",");
+            if (token) strncpy(date_str, token, sizeof(date_str));
+            token = strtok(NULL, ",");
+            if (token) strncpy(time_str, token, sizeof(time_str));
 
-			if (sscanf(line, "%31[^,],%31[^,],%15[^,],%15[^,],%15s",
-								 city, weather_str, temp_str, date_str, time_str) == 5)
-			{
-				// --- Display city, weather, temp ---
-				st7735_write_string(0, 64, city, &font_ascii_8x16, ST7735_BLUE, ST7735_BLACK);
-				st7735_write_string(0, 80, weather_str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
-				st7735_write_string(0, 96, temp_str, &font_ascii_8x16, ST7735_GREEN, ST7735_BLACK);
+            // Display received weather info
+            st7735_fill_rect(0, 64, 160, 48, ST7735_BLACK);
+            st7735_write_string(0, 64, city, &font_ascii_8x16, ST7735_WHITE, ST7735_BLACK);
+            st7735_write_string(0, 80, weather_str, &font_ascii_8x16, ST7735_WHITE, ST7735_BLACK);
+            st7735_write_string(0, 96, temp_str, &font_ascii_8x16, ST7735_WHITE, ST7735_BLACK);
 
-				// --- Convert to rtc_date_t ---
-				sscanf(date_str, "%4d-%2d-%2d", &date.year, &date.month, &date.day);
-				sscanf(time_str, "%2d:%2d:%2d", &date.hour, &date.minute, &date.second);
+            // Parse and set RTC
+            int y, m, d, h, min, s;
+            sscanf(date_str, "%4d-%2d-%2d", &y, &m, &d);
+            sscanf(time_str, "%2d:%2d:%2d", &h, &min, &s);
 
-				// --- Update RTC ---
-				rtc_set_date(&date);
-			}
-		}
+            date.year = y;
+            date.month = m;
+            date.day = d;
+            date.hour = h;
+            date.minute = min;
+            date.second = s;
+            rtc_set_date(&date);
 
-		delay_ms(500); // Update screen & poll rate
-	}
+            // Reset buffer
+            rx_len = 0;
+            line_ready = false;
+        }
+
+        delay_ms(500);  // Limit screen updates
+    }
 }

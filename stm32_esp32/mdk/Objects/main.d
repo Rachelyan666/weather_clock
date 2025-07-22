@@ -38,5 +38,5 @@
 .\objects\main.o: ..\driver\st7735\stfonts.h
 .\objects\main.o: ..\driver\st7735\stimage.h
 .\objects\main.o: ..\app\lcd_spi.h
-.\objects\main.o: ..\driver\esp_at\esp_at.h
+.\objects\main.o: ..\app\esp_usart.h
 .\objects\main.o: ..\app\weather.h

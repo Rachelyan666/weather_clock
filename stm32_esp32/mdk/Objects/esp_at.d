@@ -1,12 +1,10 @@
 .\objects\esp_at.o: ..\driver\esp_at\esp_at.c
 .\objects\esp_at.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\esp_at.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\objects\esp_at.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\esp_at.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\esp_at.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\esp_at.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\esp_at.o: ..\app\esp_usart.h
-.\objects\esp_at.o: ..\driver\esp_at\esp_at.h
+.\objects\esp_at.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\esp_at.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\esp_at.o: ..\app\main.h
 .\objects\esp_at.o: ..\firmware\cmsis\device\stm32f10x.h
 .\objects\esp_at.o: ..\firmware\cmsis\core\core_cm3.h
@@ -36,3 +34,5 @@
 .\objects\esp_at.o: ..\firmware\driver\inc\stm32f10x_usart.h
 .\objects\esp_at.o: ..\firmware\driver\inc\stm32f10x_wwdg.h
 .\objects\esp_at.o: ..\firmware\driver\inc\misc.h
+.\objects\esp_at.o: ..\app\esp_usart.h
+.\objects\esp_at.o: ..\driver\esp_at\esp_at.h
