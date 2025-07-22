@@ -4,6 +4,7 @@
         "usart.h": "c",
         "main.h": "c",
         "esp_usart.h": "c",
-        "stimage.h": "c"
+        "stimage.h": "c",
+        "weather.h": "c"
     }
 }
