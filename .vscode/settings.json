@@ -5,6 +5,7 @@
         "main.h": "c",
         "esp_usart.h": "c",
         "stimage.h": "c",
-        "weather.h": "c"
+        "weather.h": "c",
+        "rtc.h": "c"
     }
 }
