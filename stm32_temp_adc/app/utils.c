@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include "stm32f10x.h"
 
-void delay(uint32_t x)
+void delay_ms(uint32_t x)
 {
 	for (uint32_t i = 0; i < x; i++)
 	{

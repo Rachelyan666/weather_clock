@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include "stm32f10x.h"
+#include <ntc.h>
 
 #define ADC_BUFFER_SIZE 128
 static uint16_t adc_buffer[ADC_BUFFER_SIZE];

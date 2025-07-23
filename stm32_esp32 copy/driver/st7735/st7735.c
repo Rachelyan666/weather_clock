@@ -412,3 +412,24 @@ void st7735_draw_image(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uin
     st7735_write_data((uint8_t *)data, w * h * 2);
     st7735_unselect();
 }
+
+void st7735_set_rotation(uint8_t rotation) {
+    st7735_select();
+    st7735_write_cmd(ST7735_MADCTL);
+    switch (rotation % 4) {
+        case 0:
+						st7735_write_data((uint8_t[]) {0x60}, 1); // Landscape
+            break;
+        case 1:     
+						st7735_write_data((uint8_t[]) {0xC0}, 1); // Portrait
+            break;
+        case 2:
+            st7735_write_data((uint8_t[]) {0xA0}, 1); // Inverted Landscape
+            break;
+        case 3:
+						st7735_write_data((uint8_t[]) {0x00}, 1); // Inverted Portrait
+            break;
+    }
+    st7735_unselect();
+}
+

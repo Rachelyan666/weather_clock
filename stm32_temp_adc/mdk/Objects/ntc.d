@@ -29,3 +29,4 @@
 .\objects\ntc.o: ..\firmware\driver\inc\stm32f10x_usart.h
 .\objects\ntc.o: ..\firmware\driver\inc\stm32f10x_wwdg.h
 .\objects\ntc.o: ..\firmware\driver\inc\misc.h
+.\objects\ntc.o: ..\app\ntc.h

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include "stm32f10x.h"
 
-void delay(uint32_t x);
+void delay_ms(uint32_t x);
 void board_init(void);
 
 #endif  /*__LED_H*/

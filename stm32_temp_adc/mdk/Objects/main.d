@@ -34,3 +34,6 @@
 .\objects\main.o: ..\app\led.h
 .\objects\main.o: ..\app\usart.h
 .\objects\main.o: ..\app\ntc.h
+.\objects\main.o: ..\driver\st7735\st7735.h
+.\objects\main.o: ..\driver\st7735\stfonts.h
+.\objects\main.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

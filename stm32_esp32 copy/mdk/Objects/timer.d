@@ -1,4 +1,4 @@
-.\objects\timer.o: ..\app\timer.c
+.\objects\timer.o: ..\driver\timer.c
 .\objects\timer.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\timer.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\timer.o: ..\firmware\cmsis\device\stm32f10x.h
@@ -29,4 +29,4 @@
 .\objects\timer.o: ..\firmware\driver\inc\stm32f10x_usart.h
 .\objects\timer.o: ..\firmware\driver\inc\stm32f10x_wwdg.h
 .\objects\timer.o: ..\firmware\driver\inc\misc.h
-.\objects\timer.o: ..\app\timer.h
+.\objects\timer.o: ..\driver\timer.h

@@ -93,3 +93,18 @@ float mpu6050_read_temper(void)
 
     return (float)temp_raw / 340.0f + 36.53f;
 }
+
+int detect_orientation(void)
+{
+    mpu6050_accel_t accel;
+    mpu6050_read_accel(&accel);
+
+    float ax = accel.x;
+    float ay = accel.y;
+
+    if (fabsf(ax) > fabsf(ay)) {
+        return ax > 0.7f ? 3 : (ax < -0.7f ? 1 : -1);  // Landscape left/right
+    } else {
+        return ay > 0.7f ? 2 : (ay < -0.7f ? 0 : -1);  // Portrait down/up
+    }
+}

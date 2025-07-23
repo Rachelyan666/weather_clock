@@ -34,5 +34,5 @@
 .\objects\esp_at.o: ..\firmware\driver\inc\stm32f10x_usart.h
 .\objects\esp_at.o: ..\firmware\driver\inc\stm32f10x_wwdg.h
 .\objects\esp_at.o: ..\firmware\driver\inc\misc.h
-.\objects\esp_at.o: ..\app\esp_usart.h
+.\objects\esp_at.o: ..\driver\esp_at\esp_usart.h
 .\objects\esp_at.o: ..\driver\esp_at\esp_at.h

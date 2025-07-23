@@ -1,4 +1,4 @@
-.\objects\led.o: ..\app\led.c
+.\objects\led.o: ..\driver\led.c
 .\objects\led.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\led.o: ..\firmware\cmsis\device\stm32f10x.h
 .\objects\led.o: ..\firmware\cmsis\core\core_cm3.h
@@ -29,4 +29,4 @@
 .\objects\led.o: ..\firmware\driver\inc\stm32f10x_usart.h
 .\objects\led.o: ..\firmware\driver\inc\stm32f10x_wwdg.h
 .\objects\led.o: ..\firmware\driver\inc\misc.h
-.\objects\led.o: ..\app\led.h
+.\objects\led.o: ..\driver\led.h

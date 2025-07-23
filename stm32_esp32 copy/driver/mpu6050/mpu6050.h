@@ -33,6 +33,7 @@ bool mpu6050_init(void);
 void mpu6050_read_accel(mpu6050_accel_t *accel);
 void mpu6050_read_gyro(mpu6050_gyro_t *gyro);
 float mpu6050_read_temper(void);
+int detect_orientation(void);
 
 
 #endif /* __MPU6050_H__ */

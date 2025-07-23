@@ -1,4 +1,4 @@
-.\objects\rtc.o: ..\app\rtc.c
+.\objects\rtc.o: ..\driver\rtc.c
 .\objects\rtc.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\rtc.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\rtc.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
@@ -30,4 +30,4 @@
 .\objects\rtc.o: ..\firmware\driver\inc\stm32f10x_usart.h
 .\objects\rtc.o: ..\firmware\driver\inc\stm32f10x_wwdg.h
 .\objects\rtc.o: ..\firmware\driver\inc\misc.h
-.\objects\rtc.o: ..\app\rtc.h
+.\objects\rtc.o: ..\driver\rtc.h

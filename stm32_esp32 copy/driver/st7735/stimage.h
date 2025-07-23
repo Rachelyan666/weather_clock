@@ -14,10 +14,10 @@ typedef struct
 
 
 extern const st_image_t icon_weather_duoyun;
-extern const st_image_t icon_weather_feng;
+//extern const st_image_t icon_weather_feng;
 extern const st_image_t icon_weather_qing;
-extern const st_image_t icon_weather_xue;
-extern const st_image_t icon_weather_yin;
+//extern const st_image_t icon_weather_xue;
+//extern const st_image_t icon_weather_yin;
 extern const st_image_t icon_weather_yu;
 
 

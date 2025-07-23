@@ -1,16 +1,18 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include "stm32f10x.h"
+#include <math.h>
 
 #define ADC_BUFFER_SIZE 128
 static uint16_t adc_buffer[ADC_BUFFER_SIZE];
 static bool dma_busy;
 
-#define BETA 3950.0f
-#define R_25 10000.0f    // 10kΩ at 25°C
-#define R_FIXED 10000.0f // 10kΩ series resistor
-#define ADC_MAX 4095.0f
-#define T0_KELVIN 298.15f // 25°C in Kelvin
+#define BETA      3950.0f       // Beta coefficient
+#define R_25      10000.0f      // Thermistor resistance at 25°C
+#define R_FIXED   10000.0f      // Series resistor (10k typical)
+#define ADC_MAX   4095.0f       // 12-bit ADC
+#define T0_KELVIN 298.15f       // 25°C in Kelvin
+
 
 static void adc_gpio_init(void)
 {
@@ -125,12 +127,12 @@ void DMA1_Channel1_IRQHandler(void)
   }
 }
 
-float adc_to_temp(uint16_t adc_value)
+int adc_to_temp(uint16_t adc_value)
 {
-  float voltage_ratio = adc_value / ADC_MAX;
-  float resistance = R_FIXED * (voltage_ratio / (1.0f - voltage_ratio));
+    float voltage_ratio = adc_value / ADC_MAX;
+    float resistance = R_FIXED * (voltage_ratio / (1.0f - voltage_ratio));
 
-  float temp_k = 1.0f / (1.0f / T0_KELVIN + log(resistance / R_25) / BETA);
-  float temp_c = temp_k - 273.15f;
-  return temp_c;
+    float temp_k = 1.0f / (1.0f / T0_KELVIN + logf(resistance / R_25) / BETA);
+    float temp_c = temp_k - 273.15f;
+    return (int)(temp_c + 0.5f);
 }

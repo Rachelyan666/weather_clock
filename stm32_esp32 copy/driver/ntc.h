@@ -6,6 +6,6 @@
 
 void ntc_init(void);
 uint16_t ntc_read(void);
-float adc_to_temp(uint16_t adc_value);
+int adc_to_temp(uint16_t adc_value);
 
 #endif /*__NTC_H*/
