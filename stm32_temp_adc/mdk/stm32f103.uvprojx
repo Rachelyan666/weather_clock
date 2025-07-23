@@ -404,6 +404,11 @@
               <FileType>1</FileType>
               <FilePath>..\app\usart.c</FilePath>
             </File>
+            <File>
+              <FileName>ntc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\app\ntc.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

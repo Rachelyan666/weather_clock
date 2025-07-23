@@ -21,16 +21,21 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.3.0.0
 Dialog DLL:      TCM.DLL V1.56.6.0
  
 <h2>Project:</h2>
-C:\Users\rache\OneDrive\Desktop\weather_clock\stm32_usart\mdk\stm32f103.uvprojx
-Project File Date:  07/17/2025
+C:\Users\rache\OneDrive\Desktop\weather_clock\stm32_temp_adc\mdk\stm32f103.uvprojx
+Project File Date:  07/22/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin'
 Build target 'project'
 compiling main.c...
+..\app\main.c(10): warning:  #177-D: variable "data_buffer"  was declared but never referenced
+  static uint8_t data_buffer[16];
+..\app\main.c(11): warning:  #177-D: variable "data_len"  was declared but never referenced
+  static uint16_t data_len;
+..\app\main.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=2104 RO-data=336 RW-data=28 ZI-data=1044  
-".\Objects\stm32f103.axf" - 0 Error(s), 0 Warning(s).
+Program Size: Code=3852 RO-data=336 RW-data=28 ZI-data=1284  
+".\Objects\stm32f103.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 

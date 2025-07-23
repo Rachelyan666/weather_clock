@@ -23,7 +23,8 @@ int main(void)
 	{
 		delay(100);
 		uint16_t ntc = ntc_read();
-		snprintf(sbuf, sizeof(sbuf), "NTC: 0x%04x\n", ntc);
+		//snprintf(sbuf, sizeof(sbuf), "NTC: 0x%04x\n", ntc);
+		snprintf(sbuf, sizeof(sbuf), "NTC: %u\n", ntc);
 		usart_write_string(sbuf);
 	}
 }

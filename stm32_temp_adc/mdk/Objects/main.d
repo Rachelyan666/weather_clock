@@ -1,6 +1,7 @@
 .\objects\main.o: ..\app\main.c
 .\objects\main.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\main.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\main.o: C:\Users\rache\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\main.o: ..\firmware\cmsis\device\stm32f10x.h
 .\objects\main.o: ..\firmware\cmsis\core\core_cm3.h
 .\objects\main.o: ..\firmware\cmsis\device\system_stm32f10x.h
@@ -32,3 +33,4 @@
 .\objects\main.o: ..\app\main.h
 .\objects\main.o: ..\app\led.h
 .\objects\main.o: ..\app\usart.h
+.\objects\main.o: ..\app\ntc.h
